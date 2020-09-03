@@ -6,7 +6,7 @@
 
 [preview](example/images/preview.png)
 
-[show](example/images/show.png)
+[show](example/images/view.png)
 
 ### Настройка
 
