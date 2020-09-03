@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+  <!--suppress JSUnresolvedVariable -->
+  <link rel="stylesheet" href="{% static 'dropnote/main.css' %}">
+{% endblock %}
+
+{% block content %}
+  <form id="note" class="wrapper" method="post" action="">
+  {% csrf_token %}
+      <div class="cmd">
+        <div class="title-bar">Note</div>
+        <div class="tool-bar">
+          <ul>
+            <li><a href="#" class="btn" role="button" onclick="note.submit()">Save...</a></li>
+          </ul>
+        </div>
+        <textarea name="text" class="textarea" placeholder="Type something here..."></textarea>
+      </div>
+  </form>
+{% endblock %}

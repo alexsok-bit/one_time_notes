@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+  <link rel="stylesheet" href="{% static 'dropnote/main.css' %}">
+  <link rel="stylesheet" href="{% static 'hint/style.css' %}">
+
+  <script src="{% static 'dropnote/show.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+  {# вызов запроса внутри формы приводит к сабмиту формы #}
+  <button style="display: none" id="url_caller_sec" class="" onclick="secure_show('{{ snippet_url }}', '{{ csrf_token }}')"></button>
+  <button style="display: none" id="url_caller" class="" onclick="get_snippet('{{ snippet_url }}', '{{ csrf_token }}')"></button>
+  {#  #}
+  <div id="hint"></div>
+
+  <form id="note" class="wrapper" method="post" action="{% url 'dropnote:index' %}">
+    {% csrf_token %}
+    <div id="snippet" class="cmd">
+      <div class="title-bar">Note</div>
+
+      <div class="tool-bar">
+        <ul>
+          <li><a class="btn" href="{% url 'dropnote:index' %}" role="button">New</a></li>
+          <li id="save_action" style="display: none"><a class="btn" href="#" onclick="note.submit()">As new</a></li>
+
+          <li id="show_actions">
+            <div class="btn-group">
+              <a role="button" class="btn" onclick="url_caller_sec.click()">Show</a>
+
+              <button type="button" class="btn dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </button>
+              <div class="dropdown-menu">
+
+                <a href="#" class="dropdown-item" onclick="url_caller.click()">approve -></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <textarea style="display: none" id="text" name="text" class="textarea" placeholder="Type something here..."></textarea>
+      <pre class="textarea" id="link" class="lead" data-hint="Click to Copy" onclick="xclip()" style="cursor: pointer">{{ snippet_url }}</pre>
+    </div>
+  </form>
+{% endblock %}
+
+{% block afooter %}
+<script src="{% static 'hint/actions.js' %}"></script>
+{% endblock %}

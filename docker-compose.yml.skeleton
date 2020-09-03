@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  note:
+    build: .
+    volumes:
+      - ./services/note/static:/app/static
+    mem_limit: 512m
+    command: ;python manage.py collectstatic --no-input
+    depends_on:
+      - nginx
+
+  nginx:
+    image: nginx:1.14-alpine
+    volumes:
+      - ./services/note/static:/app/static
+      - ./services/nginx/conf.d:/etc/nginx/conf.d
+      - ./services/nginx/nginx.conf:/etc/nginx/nginx.conf
+    mem_limit: 512m
+    ports:
+      - "127.0.0.1:8000:80"

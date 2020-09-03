@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  note:
+    build: .
+    volumes:
+      - ./note/static:/app/static
+    mem_limit: 512m
+    depends_on:
+      - nginx
+
+  nginx:
+    image: nginx:1.14-alpine
+    volumes:
+      - ./note/static:/static
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/uwsgi_params.conf:/etc/nginx/uwsgi_params.conf
+    mem_limit: 512m
+    ports:
+      - "127.0.0.1:8000:80"
