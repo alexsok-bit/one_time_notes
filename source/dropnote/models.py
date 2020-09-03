@@ -5,14 +5,12 @@ from django.urls import reverse
 
 
 class TokenField(models.CharField):
-    def __init__(self, verbose_name=None, **kwargs):
-        kwargs['max_length'] = 6
+    def __init__(self, verbose_name=None, max_length=6, **kwargs):
         kwargs['default'] = self.make_new
-        super().__init__(verbose_name, **kwargs)
+        super().__init__(verbose_name, max_length=max_length, **kwargs)
 
-    @staticmethod
-    def make_new():
-        return uuid.uuid4().hex[:6]
+    def make_new(self):
+        return uuid.uuid4().hex[:self.max_length]
 
 
 class SnippetItem(models.Model):
