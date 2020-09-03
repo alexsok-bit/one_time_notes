@@ -7,6 +7,7 @@ from django.urls import reverse
 class TokenField(models.CharField):
     def __init__(self, verbose_name=None, **kwargs):
         kwargs['max_length'] = 6
+        kwargs['default'] = self.make_new
         super().__init__(verbose_name, **kwargs)
 
     @staticmethod
@@ -16,7 +17,7 @@ class TokenField(models.CharField):
 
 class SnippetItem(models.Model):
     # рандомный набор символов, чтобы нельзя было проитерироваться по всем заметкам
-    id = TokenField(primary_key=True, default=TokenField.make_new, editable=False)
+    id = TokenField(primary_key=True, editable=False)
     # текст в котором хранится сниппет
     text = models.TextField()
     # даты
