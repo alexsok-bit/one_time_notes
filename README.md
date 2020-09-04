@@ -23,6 +23,20 @@ curl -s -X POST https://note.knok.xyz/XXXXXX
 # Hello World
 ```
 
+### url2pdf
+
+Преобразование ссылки url в pdf. 
+
+#### из терминала
+
+```bash
+url2pdf() {
+    server_url='https://note.knok.xyz/url2pdf/u/';
+    curl -s -L ${server_url}$1 -o site.pdf;
+}
+url2pdf https://google.com/
+```
+
 ### Настройка
 
 Запускаем `make` из корневой директории проекта. После этого будет доступен файл для своих настроек по пути `source/notes/settings/override.py`.
