@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='SnippetItem',
             fields=[
-                ('id', dropnote.models.TokenField(default=dropnote.models.TokenField.make_new, editable=False, max_length=6, primary_key=True, serialize=False)),
+                ('id', dropnote.models.TokenField(editable=False, max_length=6, primary_key=True, serialize=False)),
                 ('text', models.TextField()),
                 ('date_created', models.DateTimeField(auto_now_add=True)),
             ],
