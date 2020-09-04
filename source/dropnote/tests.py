@@ -17,3 +17,7 @@ class TestMakeNote(TestCase):
     def test_make_note(self):
         output = check_output(f"curl -X PUT -s -d 'Hello' {self.host}/", shell=True)
         self.assertTrue(re.match(b"^" + self.host.encode() + b"/[0-9a-z]{6}/$", output), output)
+
+        snippet_url = output.decode()
+        output = check_output(f"curl -X POST -s {snippet_url}", shell=True)
+        self.assertEqual(b"Hello\n", output)

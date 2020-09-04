@@ -33,6 +33,7 @@ class IndexPage(CreateView):
         return form_class
 
 
+@method_decorator(csrf_exempt, name="dispatch")
 class ViewPage(DetailView):
     """Страница просмотра"""
     template_name = "dropnote/view.html"
