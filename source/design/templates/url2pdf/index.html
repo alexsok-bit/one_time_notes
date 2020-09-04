@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}url2pdf{% endblock %}
+{% block content %}
+    <script src="{% static 'url2pdf/action_download.js' %}"></script>
+    <div class="form-group">
+        <label for="url">URL</label>
+        <input id="url" class="form-control" type="url" required>
+        <small id="emailHelp" class="form-text text-muted">Paste url to convert to pdf</small>
+        <a href="#" onclick="submit_form()" class="btn btn-primary">Submit</a>
+    </div>
+{% endblock %}

@@ -8,9 +8,11 @@
 from django import urls
 
 from .views import IndexPage
+from .views import DownloadPage
 
 app_name = "url2pdf"
 
 urlpatterns = [
-    urls.path('u/<path:url>/', IndexPage.as_view(), name="index")
+    urls.path('u/<path:url>/', DownloadPage.as_view(), name="upload"),
+    urls.path('', IndexPage.as_view(), name="index")
 ]

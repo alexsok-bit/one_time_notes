@@ -5,9 +5,14 @@ from urllib.parse import urljoin
 from django.conf import settings
 from django.http import HttpResponseRedirect
 from django.views import View
+from django.views.generic import TemplateView
 
 
-class IndexPage(View):
+class IndexPage(TemplateView):
+    template_name = "url2pdf/index.html"
+
+
+class DownloadPage(View):
     upload_to = "url2pdf"
 
     def __init__(self, **kwargs):
