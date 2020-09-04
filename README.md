@@ -2,6 +2,8 @@
 
 Одноразовые заметки. 
 
+### Скрины web-страниц
+
 ![create](example/images/create.png)
 
 ![preview](example/images/preview.png)
