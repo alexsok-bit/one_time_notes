@@ -2,11 +2,11 @@
 
 Одноразовые заметки. 
 
-[create](example/images/create.png)
+![create](example/images/create.png)
 
-[preview](example/images/preview.png)
+![preview](example/images/preview.png)
 
-[show](example/images/view.png)
+![show](example/images/view.png)
 
 ### Настройка
 
