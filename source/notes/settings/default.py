@@ -129,9 +129,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = BASE_DIR.joinpath('static')
-
 STATICFILES_DIRS = [
     BASE_DIR.joinpath('design', 'static')
 ]
+
+MEDIA_URL = '/m/'
+MEDIA_ROOT = BASE_DIR.joinpath('media')
+
 
 APPEND_SLASH = True

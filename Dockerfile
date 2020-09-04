@@ -15,6 +15,7 @@ ADD ./source .
 
 VOLUME /app/static
 VOLUME /app/logs
+VOLUME /app/media
 
 RUN python manage.py collectstatic --no-input && python manage.py migrate
 

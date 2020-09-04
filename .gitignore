@@ -1,7 +1,9 @@
 extra/
 source/notes/settings/override.py
 source/static
+source/media
 example/note/static/
+example/note/media/
 example/nginx/log/
 .idea/
 docker-compose.yml
