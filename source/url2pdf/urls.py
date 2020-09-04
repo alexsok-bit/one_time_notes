@@ -12,5 +12,5 @@ from .views import IndexPage
 app_name = "url2pdf"
 
 urlpatterns = [
-    urls.path('<path:url>/', IndexPage.as_view(), name="index")
+    urls.path('u/<path:url>/', IndexPage.as_view(), name="index")
 ]
