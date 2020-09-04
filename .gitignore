@@ -5,6 +5,7 @@ example/note/static/
 example/nginx/log/
 .idea/
 docker-compose.yml
+wkhtmltox_0.12.6-1.stretch_amd64.deb
 
 # Created by .ignore support plugin (hsz.mobi)
 ### Python template

@@ -2,7 +2,8 @@ FROM python:3.7-stretch AS Notes
 LABEL stage="beta"
 
 # installation external system libraries
-RUN apt -y update
+ADD wkhtmltox_0.12.6-1.stretch_amd64.deb /tmp/w.deb
+RUN apt -y update && dpkg -i /tmp/w.deb; apt-get -f install -y; rm -rf /var/lib/apt/lists/*
 
 # copy our application code
 WORKDIR /app
