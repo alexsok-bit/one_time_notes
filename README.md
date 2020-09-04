@@ -10,6 +10,19 @@
 
 ![show](example/images/view.png)
 
+### Использование из терминала
+
+```bash
+dropnote() {
+    server_url='https://note.knok.xyz/';
+    curl -s -X PUT -d $(cat) ${server_url};
+}
+echo 'Hello World' | dropnote
+# https://note.knok.xyz/XXXXXX
+curl -s -X POST https://note.knok.xyz/XXXXXX
+# Hello World
+```
+
 ### Настройка
 
 Запускаем `make` из корневой директории проекта. После этого будет доступен файл для своих настроек по пути `source/notes/settings/override.py`.
