@@ -27,6 +27,9 @@ update:
 	$(python) source/manage.py migrate $(args)
 	$(python) source/manage.py collectstatic --no-input
 	$(python) source/manage.py $(args) test
+	rm -rf example/note/static
+	cp -r source/static example/note/static
+	echo -n > example/note/static/.gitkeep
 
 build:
 	docker build $(args) -t $(repo)/$(name):$(tag) .
