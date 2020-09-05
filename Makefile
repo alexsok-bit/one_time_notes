@@ -4,9 +4,9 @@ repo = localhost
 name = notes
 tag = latest
 
-env_dir = .venv
-python = $(env_dir)/bin/python
-pip = $(env_dir)/bin/pip
+env = .venv
+python = $(env)/bin/python
+pip = $(env)/bin/pip
 
 .PHONY: build run shell push stop clean setup all update
 
