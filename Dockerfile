@@ -13,13 +13,11 @@ ADD ./requirements.txt ./requirements.txt
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 ADD ./source .
 
-VOLUME /app/static
-VOLUME /app/logs
-VOLUME /app/media
-
+RUN mkdir -p /app/static /app/logs /app/media
 RUN python manage.py collectstatic --no-input && python manage.py migrate
+RUN useradd nginx && chown -R nginx:nginx -R .
 
 EXPOSE 8000
+USER nginx
 
-RUN chown www-data:www-data -R .
 ENTRYPOINT ["uwsgi", "--master", "--enable-threads", "--emperor", "/app/uwsgi/config.ini"]
