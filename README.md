@@ -1,4 +1,7 @@
-### DropNote
+* [DropNote](#DropNote)
+* [url2pdf](#url2pdf)
+
+# DropNote
 
 Одноразовые заметки. 
 
@@ -10,7 +13,7 @@
 
 ![show](example/images/view.png)
 
-### Использование из терминала
+#### Использование из терминала
 
 ```bash
 dropnote() {
@@ -23,7 +26,7 @@ curl -s -X POST https://note.knok.xyz/XXXXXX
 # Hello World
 ```
 
-### url2pdf
+# url2pdf
 
 Преобразование ссылки url в pdf. 
 
