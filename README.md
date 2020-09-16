@@ -1,5 +1,5 @@
-* [DropNote](#DropNote)
-* [url2pdf](#url2pdf)
+* [DropNote](#DropNote) https://note.knok.xyz/
+* [url2pdf](#url2pdf) https://note.knok.xyz/url2pdf/
 
 # DropNote
 
@@ -40,7 +40,7 @@ url2pdf() {
 url2pdf https://google.com/
 ```
 
-### Настройка
+# Настройка
 
 Запускаем `make` из корневой директории проекта. После этого будет доступен файл для своих настроек по пути `source/notes/settings/override.py`.
 
